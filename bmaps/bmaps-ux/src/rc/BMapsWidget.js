@@ -35,7 +35,8 @@ define([
   var TITLE_TAG = 'm:title',
     DESCRIPTION_TAG = 'm:description',
     IMAGESRC_TAG = 'm:imageSrc',
-    CHILD_TAG = 'm:child';
+    CHILD_TAG = 'm:child',
+    LINK_TAG = 'm:hyperlink';
   /**
    * Loads a map into a widget. Queries the station to display live data.
    *
@@ -253,7 +254,26 @@ define([
     // this requires constantly subscribe all the points, so performance is
     // bad, ony enable this when user enables
     var showAlarmIcon = widget.properties().getValue('showAlarmIcon');
+
     infoWindow.setTitle(title);
+    var link = getTagValue(comp, LINK_TAG);
+
+    if (link) {
+      var ordATag;
+      var httpRE = /^http:\/\//;
+      var httpsRE = /^https:\/\//;
+      if (httpRE.test(link) || httpsRE.test(link)) {
+        ordATag = "<a target='new' href='" + link + "'>" + title + '</a>';
+      } else {
+        ordATag =
+          "<a href='javascript:window.top.niagara.env.hyperlink(\"" +
+          link +
+          '");\'>' +
+          title +
+          '</a>';
+      }
+      infoWindow.setTitle(ordATag);
+    }
 
     // add marker to the map
     map.addOverlay(marker);

@@ -46,6 +46,12 @@
      </p>
      <p n="defValue" t="b:String" v=""/>
     </p>
+    <!-- /Tags/bmaps/tagDefinitions/hyperlink -->
+    <p n="hyperlink" h="18" t="td:SimpleTagInfo">
+     <p n="validity" h="19" t="td:Always">
+     </p>
+     <p n="defValue" t="b:Ord" v="null"/>
+    </p>
    </p>
    <p n="tagGroupDefinitions" h="8" t="td:TagGroupInfoList">
    </p>
