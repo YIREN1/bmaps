@@ -68,6 +68,8 @@ git clone https://github.com/yiren1/bmaps.git
 
 - 点击地图上的配置好的点会弹出一个信息窗口：
   - 显示出该点下 SUMMARY 需用tags(m:title,m:imageSrc,m:description)
+  - m:hyperlink 可用于配置title 的跳转(ord 或者 外部链接)
+    - 外部链接需要'http://,https://'开头
   - 以及对应子节点的信息
     - 子节点需要配置 relation **from** parent **m:child**
   - 同时会订阅相应点的变化
